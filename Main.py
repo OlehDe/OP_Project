@@ -2,20 +2,23 @@ from OP_Project import HomeLibrary
 
 
 def display_menu():
-    print("""\nМеню домашньої бібліотеки:
-1. Додати книгу
-2. Додати статтю
-3. Додати журнал
-4. Видалити книгу
-5. Видалити статтю
-6. Видалити журнал
-7. Переглянути всі матеріали
-8. Пошук матеріалу
-9. Сортувати матеріали
-10. Показати книги
-11. Показати статті
-12. Показати журнали
-13. Вийти""")
+    print("""
+    Меню домашньої бібліотеки:
+    1. Додати книгу
+    2. Додати статтю
+    3. Додати журнал
+    4. Видалити книгу
+    5. Видалити статтю
+    6. Видалити журнал
+    7. Переглянути всі матеріали
+    8. Пошук матеріалу
+    9. Сортувати матеріали
+    10. Показати книги
+    11. Показати статті
+    12. Показати журнали
+    13. Вийти
+    """)
+
 
 def add_book_action(library):
     title = input("Введіть назву книги: ")
@@ -42,15 +45,18 @@ def remove_book_action(library):
     author = input("Введіть ім'я автора: ")
     library.remove_book(title, author)
 
+
 def remove_article_action(library):
     title = input("Введіть назву статті для видалення: ")
     author = input("Введіть ім'я автора: ")
     library.remove_article(title, author)
 
+
 def remove_magazine_action(library):
     title = input("Введіть назву журналу для видалення: ")
     issue = input("Введіть номер випуску: ")
     library.remove_magazine(title, issue)
+
 
 def main():
     library = HomeLibrary()
@@ -59,37 +65,38 @@ def main():
         display_menu()
         choice = input("Виберіть дію: ")
 
-        if choice == '1':
+        if choice == "1":
             add_book_action(library)
-        elif choice == '2':
+        elif choice == "2":
             add_article_action(library)
-        elif choice == '3':
+        elif choice == "3":
             add_magazine_action(library)
-        elif choice == '4':
+        elif choice == "4":
             remove_book_action(library)
-        elif choice == '5':
+        elif choice == "5":
             remove_article_action(library)
-        elif choice == '6':
+        elif choice == "6":
             remove_magazine_action(library)
-        elif choice == '7':
+        elif choice == "7":
             library.list_materials()
-        elif choice == '8':
+        elif choice == "8":
             search_term = input("Введіть пошуковий запит: ")
             library.search_material(search_term)
-        elif choice == '9':
+        elif choice == "9":
             key = input("Введіть критерій сортування (назва, автор, рік): ")
             library.sort_materials(key)
-        elif choice == '10':
+        elif choice == "10":
             library.show_books()
-        elif choice == '11':
+        elif choice == "11":
             library.show_articles()
-        elif choice == '12':
+        elif choice == "12":
             library.show_magazines()
-        elif choice == '13':
+        elif choice == "13":
             print("Вихід...")
             break
         else:
             print("Невірний вибір, спробуйте ще раз.")
+
 
 if __name__ == "__main__":
     main()

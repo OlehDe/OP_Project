@@ -94,16 +94,27 @@ class HomeLibrary:
     def search_material(self, search_term):
         print("\nРезультати пошуку:")
         for book in self.books:
-            if search_term.lower() in book.title.lower() or search_term.lower() in book.author.lower():
+            if (
+                search_term.lower() in book.title.lower()
+                or search_term.lower() in book.author.lower()
+            ):
                 print(book)
         for article in self.articles:
-            if search_term.lower() in article.title.lower() or search_term.lower() in article.author.lower():
+            if (
+                search_term.lower() in article.title.lower()
+                or search_term.lower() in article.author.lower()
+            ):
                 print(article)
         for magazine in self.magazines:
             if search_term.lower() in magazine.title.lower():
                 print(magazine)
 
     def sort_materials(self, key):
+        # keys = {
+        #     'назва': 'name',
+        #     ...
+        # }
+        # keys[user_input] # name
         self.books.sort(key=lambda x: getattr(x, key))
         self.articles.sort(key=lambda x: getattr(x, key))
         self.magazines.sort(key=lambda x: getattr(x, key))
@@ -139,5 +150,3 @@ class HomeLibrary:
         print("\nЖурнали в бібліотеці:")
         for magazine in self.magazines:
             print(magazine)
-
-
