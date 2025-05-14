@@ -1,5 +1,4 @@
-from OP_Project import HomeLibrary
-
+from HomeLib import HomeLibrary
 
 def display_menu():
     print("""
@@ -18,7 +17,6 @@ def display_menu():
     12. Показати журнали
     13. Вийти
     """)
-
 
 def add_book_action(library):
     title = input("Введіть назву книги: ")
