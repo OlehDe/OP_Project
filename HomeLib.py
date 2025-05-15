@@ -1,5 +1,7 @@
 import datetime
 
+from docutils.nodes import title
+
 from Article import Article
 from Book import Book
 from Magazine import Magazine
@@ -13,7 +15,7 @@ class HomeLibrary:
 
         self.add_book("Молоді серця", "Іван Франко", 1890, "Роман")
         self.add_article("Штучний інтелект", "Юрій Мельниченко", 2023, "Наука та життя")
-        self.add_article("Сучасні технології", "Олена Коваленко", 2022, "Техно-Майбутнє")
+        self.add_article("Сучасні технології", "Аліна Коваленко", 2022, "Техно-Майбутнє")
         self.add_magazine("Наука і прогрес", "1", 2024)
         self.add_magazine("Математика та фізика", "5", 2023)
 
@@ -115,14 +117,22 @@ class HomeLibrary:
         #     ...
         # }
         # keys[user_input] # name
-        self.books.sort(key=lambda x: getattr(x, key))
-        self.articles.sort(key=lambda x: getattr(x, key))
-        self.magazines.sort(key=lambda x: getattr(x, key))
+        if key == "title":
+            self.books.sort(key=lambda x: getattr(x, key))
+            self.articles.sort(key=lambda x: getattr(x, key))
+            self.magazines.sort(key=lambda x: getattr(x, key))
+        elif key == "author":
+            self.books.sort(key=lambda x: getattr(x, key))
+            self.articles.sort(key=lambda x: getattr(x, key))
+        elif key == "year":
+            self.books.sort(key=lambda x: getattr(x, key))
+            self.articles.sort(key=lambda x: getattr(x, key))
+            self.magazines.sort(key=lambda x: getattr(x, key))
         print(f"Відсортовано за {key}.")
 
     def validate_year(self, year):
         current_year = datetime.datetime.now().year
-        return isinstance(year, int) and 1800 <= year <= current_year
+        return isinstance(year, int) and 1574 <= year <= current_year #isinstance перевіряю (year) на тип (int)
 
     def check_duplicate(self, title, author):
         for book in self.books:

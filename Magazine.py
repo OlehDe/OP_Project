@@ -5,4 +5,4 @@ class Magazine:
         self.year = year
 
     def __str__(self):
-        return f"Журнал: {self.title} №: {self.issue} ({self.year})"
+        return f"Журнал: {self.title}. №: {self.issue} ({self.year})"

@@ -6,4 +6,4 @@ class Book:
         self.genre = genre
 
     def __str__(self):
-        return f"Книга: {self.title} автор: {self.author} ({self.year}) - Жанр: {self.genre}"
+        return f"Книга: {self.title}. Автор: {self.author} ({self.year}) - Жанр: {self.genre}"

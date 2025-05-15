@@ -6,4 +6,4 @@ class Article:
         self.journal = journal
 
     def __str__(self):
-        return f"Стаття: {self.title} автор: {self.author} ({self.year}) - Журнал: {self.journal}"
+        return f"Стаття: {self.title}. Автор: {self.author} ({self.year}) - Журнал: {self.journal}"
